@@ -81,13 +81,19 @@ function handleApply() {
   const couponPriceAmountNumber = parseFloat(couponPriceAmount.innerText);
   const couponInput = document.getElementById("coupon-input");
   const applyBtn = document.getElementById("apply-btn");
+  const couponFailMessage = document.getElementById("coupon-fail");
   //check conditon
   if (couponInput.value == "stevekaku") {
-    const discountAmount = (couponPriceAmountNumber * 58) / 100;
+    const discountAmount = (couponPriceAmountNumber * 20) / 100;
     couponPriceAmount.innerText = couponPriceAmountNumber - discountAmount;
     applyBtn.disabled = true;
-  } else {
-    couponPriceAmount.innerText = couponPriceAmount.innerText;
+    couponFailMessage.innerText = "";
   }
+  //fail message and set inner text
+  else {
+    couponPriceAmount.innerText = couponPriceAmount.innerText;
+    couponFailMessage.innerText = "Please input a correct promo code";
+  }
+  //clear input value
   couponInput.value = "";
 }
