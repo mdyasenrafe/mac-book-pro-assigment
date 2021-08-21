@@ -89,6 +89,10 @@ function handleApply() {
     applyBtn.disabled = true;
     couponFailMessage.innerText = "";
   }
+  //empty value conditon and set a message
+  else if (couponInput.value == "") {
+    couponFailMessage.innerText = "please enter a  code";
+  }
   //fail message and set inner text
   else {
     couponPriceAmount.innerText = couponPriceAmount.innerText;
